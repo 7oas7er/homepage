@@ -1,0 +1,13 @@
+---
+description: Homepage product overlay; platform defaults live in app-* rules
+alwaysApply: true
+---
+
+# Homepage — product
+
+Platform defaults: `app-core`, `app-aws-regions`, `app-observability` (see `.cursor/rules/README.md`). Shared GitHub repo for zone/Grafana Free objects: [`7oas7er/platform`](https://github.com/7oas7er/platform) — see `docs/architecture.md`.
+
+- **Product**: Frank Schlesinger’s public project directory (1990s personal-homepage feel). Lists sibling apps with short descriptions plus staging + production links.
+- **Content**: static site under `homepage/`; project rows live in `homepage/projects.json` (easy to extend). Keep `/api/health` Lambda stub from the template for synthetics.
+- **Domains**: production `www.7oas7er.com`, staging `www-stg.7oas7er.com`. Apex/`www` redirect behavior is owned by platform `shared-edge` — coordinate before cutting over live traffic.
+- **Agents**: `AGENTS.md`, `README.md`, `docs/architecture.md`, `docs/adr/`, `SECURITY.md`. Prefer small diffs. Do not invent project URLs.

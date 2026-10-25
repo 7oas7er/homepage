@@ -1,0 +1,23 @@
+[
+  {
+    "id": "block-drop",
+    "name": "Block Drop",
+    "description": "Private falling-block puzzle game — static HTML/CSS/JS with a high-scores API.",
+    "production": "https://blockdrop.7oas7er.com",
+    "staging": "https://blockdrop-stg.7oas7er.com"
+  },
+  {
+    "id": "dressme",
+    "name": "DressMe",
+    "description": "Personal wardrobe catalog and outfit suggestions (classic menswear).",
+    "production": "https://dressme.7oas7er.com",
+    "staging": "https://dressme-stg.7oas7er.com"
+  },
+  {
+    "id": "netrunner",
+    "name": "Netrunner",
+    "description": "Classic Netrunner card catalog — browse the set, starters, and boosters.",
+    "production": "https://netrunner.7oas7er.com",
+    "staging": "https://netrunner-stg.7oas7er.com"
+  }
+]

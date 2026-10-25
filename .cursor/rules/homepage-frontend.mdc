@@ -1,0 +1,13 @@
+---
+description: Homepage static listing coding standards
+globs: homepage/**/*
+alwaysApply: false
+---
+
+# Homepage — frontend
+
+- Static HTML/CSS/JS under `homepage/` (no bundler required). Keep the 1990s listing look intentional, not a parody dump.
+- Project rows come from `projects.json` — prefer editing that file over hard-coding rows in HTML.
+- Escape user/content strings when rendering into the DOM (`app.js` helpers).
+- Version assets with `?v=` query params on HTML references; bump when shipping CSS/JS changes.
+- Imprint stays lightweight static HTML.

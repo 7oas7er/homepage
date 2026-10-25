@@ -1,0 +1,33 @@
+---
+description: Homepage Terraform naming, domains, and health API
+globs: infra/terraform/**/*
+alwaysApply: false
+---
+
+# Homepage — Terraform overlay
+
+Platform layout/CI: `app-terraform`.
+
+## Naming / state
+
+- Pattern: `[environment]-homepage-[purpose]-[resource-type]` (e.g. `stg-homepage-site-bucket`).
+- State bucket: `shared-homepage-terraform-state-bucket`; keys `bootstrap/`, `envs/stg/`, `envs/prod/`, `cloudflare/`, `grafana/`.
+- Plan role: `shared-homepage-terraform-plan-role` + GitHub Environment `terraform` (`infra/terraform/docs/terraform-plan-ci.md`).
+- AWS provider `default_tags`: `Project = "homepage"` (plus `Environment`) on bootstrap / stg / prod.
+
+## Domains
+
+| Env | Domain |
+|-----|--------|
+| stg | `www-stg.7oas7er.com` |
+| prod | `www.7oas7er.com` |
+
+DNS CNAMEs for those hosts live in this app’s Cloudflare root. Zone-wide apex/`www` **redirect** rules live in platform `shared-edge` and must stop sending `www` → Block Drop before prod cutover.
+
+## App-specific
+
+- OIDC provider managed in **stg** only; prod looks it up. After repo create, set immutable OIDC subjects to `repo:7oas7er@2952810/homepage@<repo_id>:environment:…`.
+- Scaffold Lambda: `/api/health` (Node 22 via `infra/lambda`).
+- **Origin-verify**: keep AWS `origin_verify_secret` in sync with Cloudflare; rotate via `infra/terraform/docs/origin-verify-secret-rotation.md`.
+- Cloudflare app root is **DNS only** for `www` / `www-stg`. Zone rulesets live in platform `shared-edge`.
+- Access logs: `{env}-homepage-access-logs-bucket` (CloudFront v2 + S3 site). Lambda log group finite retention; CF 5xx alarms in `us-east-1`.
