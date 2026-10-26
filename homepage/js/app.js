@@ -51,14 +51,14 @@
           links.push(
             '<a href="' +
               escapeHtml(prod) +
-              '" rel="noopener noreferrer">production</a>'
+              '" target="_blank" rel="noopener noreferrer">production</a>'
           );
         }
         if (stg) {
           links.push(
             '<a href="' +
               escapeHtml(stg) +
-              '" rel="noopener noreferrer">staging</a>'
+              '" target="_blank" rel="noopener noreferrer">staging</a>'
           );
         }
         return (

@@ -64,6 +64,8 @@ test("Homepage.renderProjects emits name, description, and env links", () => {
   assert.match(html, /A &amp; B/);
   assert.match(html, /href="https:\/\/example.com"/);
   assert.match(html, /href="https:\/\/stg\.example\.com"/);
+  assert.match(html, /target="_blank"/);
+  assert.match(html, /rel="noopener noreferrer"/);
   assert.match(html, />production</);
   assert.match(html, />staging</);
 });
