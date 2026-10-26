@@ -46,3 +46,7 @@ export AWS_PROFILE=7oas7er
 - [ ] `https://www-stg.7oas7er.com` → 200
 - [ ] Raw CloudFront URL → 403 (origin-verify)
 - [ ] After prod cutover: `https://www.7oas7er.com` → Homepage; `https://7oas7er.com` → redirect to www
+
+## Repo
+
+- [x] GitHub repo `7oas7er/homepage` created (public)
