@@ -1,60 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Frank Schlesinger — Homepage</title>
-    <meta
-      name="description"
-      content="Frank Schlesinger’s project directory — staging and production links for each app."
-    />
-    <link rel="stylesheet" href="css/styles.css?v=2" />
-    <script src="js/app.js?v=2" defer></script>
+    <title>Frank Schlesinger -- Homepage</title>
+    <meta name="description" content="Frank Schlesinger project directory -- staging and production links.">
+    <script src="js/app.js?v=3" defer></script>
   </head>
-  <body>
-    <div class="page">
-      <div class="banner">
-        <h1>Frank Schlesinger</h1>
-        <p class="tagline">personal project directory · est. 2026</p>
-        <p class="marquee-line">Welcome to my homepage on the World Wide Web.</p>
-      </div>
-      <div class="content">
-        <p class="intro">
-          Below are the apps I run on <strong>7oas7er.com</strong>. Each row has
-          a short description plus links to <em>production</em> and
-          <em>staging</em>. To add a project later, edit
-          <code>projects.json</code>.
-        </p>
+  <body bgcolor="#ffffff" text="#000000" link="#0000ee" vlink="#551a8b" alink="#ff0000">
+    <center>
+      <h1><font face="Times New Roman, Times, serif">Frank Schlesinger</font></h1>
+      <p>
+        <font face="Courier New, Courier, monospace" size="2" color="#333333"
+          >personal project directory -- est. 2026</font
+        >
+      </p>
+      <p>
+        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+          Welcome to my homepage on the World Wide Web.
+        </font>
+      </p>
 
-        <table class="projects" id="projects" aria-live="polite">
-          <thead>
-            <tr>
-              <th scope="col">Project</th>
-              <th scope="col">What it is</th>
-              <th scope="col">Links</th>
-            </tr>
-          </thead>
-          <tbody id="projects-body">
-            <tr>
-              <td colspan="3" class="desc">Loading projects…</td>
-            </tr>
-          </tbody>
-        </table>
+      <hr width="90%" size="1" noshade>
 
-        <div class="footer">
-          <p>
-            Visitor
-            <span class="counter" id="visitor-counter" title="Local counter"
-              >000001</span
-            >
-            (this browser only)
-          </p>
-          <p>
-            <a href="imprint.html">Imprint</a>
-            · Best viewed with any browser
-          </p>
-        </div>
-      </div>
-    </div>
+      <table border="0" cellpadding="0" cellspacing="0" width="90%">
+        <tr>
+          <td align="left">
+            <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+              Apps I run on <b>7oas7er.com</b>. Each row has a short description
+              plus links to <i>production</i> and <i>staging</i>. Add a project
+              by editing <tt>projects.json</tt>.
+            </font>
+          </td>
+        </tr>
+      </table>
+      <p></p>
+
+      <table
+        id="projects"
+        border="1"
+        cellpadding="6"
+        cellspacing="0"
+        width="90%"
+        bgcolor="#ffffff"
+      >
+        <tr bgcolor="#cccccc">
+          <th align="left">
+            <font face="Courier New, Courier, monospace" size="2">Project</font>
+          </th>
+          <th align="left">
+            <font face="Courier New, Courier, monospace" size="2">What it is</font>
+          </th>
+          <th align="left">
+            <font face="Courier New, Courier, monospace" size="2">Links</font>
+          </th>
+        </tr>
+        <tbody id="projects-body">
+          <tr>
+            <td colspan="3">
+              <font face="Verdana, Arial, Helvetica, sans-serif" size="2"
+                >Loading projects...</font
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        <font face="Courier New, Courier, monospace" size="2">
+          Visitor
+          <font color="#006600"><b id="visitor-counter">000001</b></font>
+          (this browser only)
+        </font>
+      </p>
+
+      <p>
+        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+          <a href="imprint.html">Imprint</a>
+          -- Best viewed with any browser
+        </font>
+      </p>
+    </center>
   </body>
 </html>
