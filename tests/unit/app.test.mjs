@@ -68,6 +68,8 @@ test("Homepage.renderProjects emits name, description, and env links", () => {
   assert.match(html, /rel="noopener noreferrer"/);
   assert.match(html, />production</);
   assert.match(html, />staging</);
+  assert.match(html, /<font face="Verdana/);
+  assert.match(html, /bgcolor="#eeeeee"/);
 });
 
 test("Homepage.bumpVisitorCounter increments local storage", () => {

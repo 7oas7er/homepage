@@ -21,6 +21,17 @@
     return s;
   }
 
+  function cell(html, bgcolor) {
+    var bg = bgcolor ? ' bgcolor="' + bgcolor + '"' : "";
+    return (
+      "<td" +
+      bg +
+      '><font face="Verdana, Arial, Helvetica, sans-serif" size="2">' +
+      html +
+      "</font></td>"
+    );
+  }
+
   window.Homepage.bumpVisitorCounter = function bumpVisitorCounter(storage) {
     var store = storage || window.localStorage;
     var next = 1;
@@ -41,7 +52,7 @@
       throw new Error("projects must be an array");
     }
     return projects
-      .map(function (p) {
+      .map(function (p, index) {
         var name = escapeHtml(p.name || p.id || "Untitled");
         var desc = escapeHtml(p.description || "");
         var prod = p.production ? String(p.production) : "";
@@ -61,17 +72,14 @@
               '" target="_blank" rel="noopener noreferrer">staging</a>'
           );
         }
+        var rowBg = index % 2 === 0 ? "#eeeeee" : "#ffffff";
         return (
-          "<tr>" +
-          '<td class="name">' +
-          name +
-          "</td>" +
-          '<td class="desc">' +
-          desc +
-          "</td>" +
-          '<td class="links">' +
-          (links.join(" ") || "—") +
-          "</td>" +
+          '<tr bgcolor="' +
+          rowBg +
+          '">' +
+          cell("<b>" + name + "</b>") +
+          cell(desc) +
+          cell(links.join(" &nbsp; ") || "&mdash;") +
           "</tr>"
         );
       })
@@ -101,7 +109,7 @@
       })
       .catch(function () {
         body.innerHTML =
-          '<tr><td colspan="3" class="error">Could not load projects.json</td></tr>';
+          '<tr><td colspan="3"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#990000">Could not load projects.json</font></td></tr>';
       });
   };
 
