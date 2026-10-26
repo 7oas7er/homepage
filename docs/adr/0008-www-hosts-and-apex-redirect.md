@@ -1,6 +1,6 @@
 # ADR 0008 — www hosts + apex redirect ownership
 
-- **Status:** accepted (pending platform apply)
+- **Status:** accepted (applied)
 - **Date:** 2026-10-26
 
 ## Context
@@ -15,4 +15,4 @@ Homepage production/staging hosts are `www.7oas7er.com` / `www-stg.7oas7er.com`.
 
 ## Consequences
 
-Prod cutover is a coordinated platform apply + Homepage DNS/ACM. Do not apply redirect changes without Frank’s OK — it changes live apex/`www` traffic.
+Cutover applied: `www` / `www-stg` serve Homepage; apex 301s to `www`. Further redirect or origin-verify changes still need Frank’s OK — they affect live zone traffic.

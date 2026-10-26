@@ -28,7 +28,7 @@ Frontend lives under [`homepage/`](homepage/). Project rows are data-driven from
 | staging | `www-stg.7oas7er.com` |
 | production | `www.7oas7er.com` |
 
-**Note:** platform `shared-edge` currently redirects `www` / apex → Block Drop. Cutover requires a platform redirect change (apex → `www`, stop redirecting `www`) plus origin-verify/cache hosts — see [`docs/scaffold-follow-ups.md`](docs/scaffold-follow-ups.md).
+Apex `7oas7er.com` redirects to `www` (platform `shared-edge`). Operator checklist: [`docs/scaffold-follow-ups.md`](docs/scaffold-follow-ups.md).
 
 ## Environments and promotion
 
