@@ -1,16 +1,17 @@
 # Homepage static site
 
-1990s-style project listing for Frank Schlesinger. Deployed as static assets to S3/CloudFront.
+Project listing for Frank Schlesinger in an **HTML 3.2 / no-CSS** early-web style. Deployed as static assets to S3/CloudFront.
 
 ## Content
 
 | File | Role |
 |------|------|
-| `index.html` | Listing page shell |
+| `index.html` | Listing page (tables, `font`/`body` attributes, no stylesheet) |
 | `projects.json` | **Add projects here** — name, description, staging + production URLs |
-| `js/app.js` | Renders the table + local visitor-counter novelty |
-| `css/styles.css` | Period look (tables, web-safe fonts, grid background) |
-| `imprint.html` | Lightweight imprint |
+| `js/app.js` | Loads `projects.json` and fills the table; local visitor counter |
+| `imprint.html` | Lightweight imprint (same HTML-attribute styling) |
+
+There is intentionally **no** `css/` stylesheet — look comes from default browser rendering plus HTML 3.2-era attributes.
 
 ## Add a project
 
