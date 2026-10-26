@@ -197,8 +197,10 @@ jobs:
             "/projects.json?v=1" \
             "/css/styles.css" \
             "/css/styles.css?v=1" \
+            "/css/styles.css?v=2" \
             "/js/app.js" \
-            "/js/app.js?v=1")
+            "/js/app.js?v=1" \
+            "/js/app.js?v=2")
           files_json='['
           first=1
           for path in "${paths[@]}"; do
