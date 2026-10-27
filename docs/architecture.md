@@ -38,16 +38,14 @@ Hosts discovered from sibling Terraform (do not invent):
 
 ## What platform owns (do not recreate here)
 
-- Zone rulesets: origin-verify, cache, redirects, SSL — extend for Homepage hosts in `shared-edge`
+- Zone rulesets: origin-verify, cache, redirects, SSL for Homepage hosts in `shared-edge`
 - Shared Infinity DS `infinity-cloudflare` and GitHub catalog **plugin**
-- Today’s apex/`www` → Block Drop redirect must change before Homepage prod cutover (apex → `www`; stop redirecting `www`)
+- Apex redirect: `7oas7er.com` → `https://www.7oas7er.com` (Homepage). `www` is **not** redirected to Block Drop after cutover ([ADR 0008](adr/0008-www-hosts-and-apex-redirect.md)).
 
 ## Traffic path
 
 Browser → Cloudflare (custom domain) → inject `X-Origin-Verify` → CloudFront → S3 (and `/api/health` → Lambda). Direct CloudFront URLs return 403.
 
-## Operator follow-ups (first apply)
+## Operator notes
 
-1. Platform `shared-edge`: origin-verify + cache for `www` / `www-stg`; redirect cutover (Frank OK required).
-2. Local Terraform: bootstrap → `aws/envs/stg` → Cloudflare DNS → Grafana (then prod when ready).
-3. GitHub Environments `staging` / `production` / `terraform` + OIDC subjects (immutable form after repo id is known).
+First apply + www cutover are done (see [`scaffold-follow-ups.md`](scaffold-follow-ups.md)). Further changes: small PRs → `staging`, promote `staging` → `main` when asked; platform redirect/origin-verify edits only with Frank’s OK.

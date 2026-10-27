@@ -6,7 +6,7 @@ Does **not** manage zone apex (`7oas7er.com`) or zone rulesets. Apex redirect + 
 
 https://github.com/7oas7er/platform → `infra/terraform/shared-edge`
 
-**Cutover note:** until platform stops redirecting `www` → Block Drop, a `www` CNAME alone will not serve this app. See `docs/scaffold-follow-ups.md` and ADR 0008.
+**Live:** `www` / `www-stg` CNAMEs point at CloudFront; platform redirects apex → `www` only (not `www` → Block Drop). See `docs/scaffold-follow-ups.md` and ADR 0008.
 
 ```bash
 export AWS_PROFILE=7oas7er
