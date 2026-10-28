@@ -7,7 +7,7 @@ alwaysApply: true
 
 Platform defaults: `app-core`, `app-aws-regions`, `app-observability` (see `.cursor/rules/README.md`). Shared GitHub repo for zone/Grafana Free objects: [`7oas7er/platform`](https://github.com/7oas7er/platform) — see `docs/architecture.md`.
 
-- **Product**: Frank Schlesinger’s public project directory (HTML 3.2 / no-CSS early-web feel). Lists sibling apps with short descriptions plus staging + production links.
-- **Content**: static site under `homepage/` (attribute styling, not external CSS); project rows live in `homepage/projects.json`. Keep `/api/health` Lambda stub for synthetics.
+- **Product**: Frank Schlesinger’s public project directory (HTML 3.2 / no-CSS early-web feel). Lists sibling apps as stacked headline + multi-sentence description + production / staging / repository links (no projects table).
+- **Content**: static site under `homepage/` (attribute styling, not external CSS); project entries live in `homepage/projects.json`. Keep `/api/health` Lambda stub for synthetics.
 - **Domains**: production `www.7oas7er.com`, staging `www-stg.7oas7er.com`. Apex/`www` redirect behavior is owned by platform `shared-edge` — coordinate before cutting over live traffic.
 - **Agents**: `AGENTS.md`, `README.md`, `docs/architecture.md`, `docs/adr/`, `SECURITY.md`. Prefer small diffs. Do not invent project URLs.

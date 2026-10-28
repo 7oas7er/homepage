@@ -21,14 +21,13 @@
     return s;
   }
 
-  function cell(html, bgcolor) {
-    var bg = bgcolor ? ' bgcolor="' + bgcolor + '"' : "";
+  function externalLink(href, label) {
     return (
-      "<td" +
-      bg +
-      '><font face="Verdana, Arial, Helvetica, sans-serif" size="2">' +
-      html +
-      "</font></td>"
+      '<a href="' +
+      escapeHtml(href) +
+      '" target="_blank" rel="noopener noreferrer">' +
+      escapeHtml(label) +
+      "</a>"
     );
   }
 
@@ -55,35 +54,37 @@
       .map(function (p, index) {
         var name = escapeHtml(p.name || p.id || "Untitled");
         var desc = escapeHtml(p.description || "");
-        var prod = p.production ? String(p.production) : "";
-        var stg = p.staging ? String(p.staging) : "";
         var links = [];
-        if (prod) {
-          links.push(
-            '<a href="' +
-              escapeHtml(prod) +
-              '" target="_blank" rel="noopener noreferrer">production</a>'
-          );
+        if (p.production) {
+          links.push(externalLink(String(p.production), "production"));
         }
-        if (stg) {
-          links.push(
-            '<a href="' +
-              escapeHtml(stg) +
-              '" target="_blank" rel="noopener noreferrer">staging</a>'
-          );
+        if (p.staging) {
+          links.push(externalLink(String(p.staging), "staging"));
         }
-        var rowBg = index % 2 === 0 ? "#eeeeee" : "#ffffff";
+        if (p.repository) {
+          links.push(externalLink(String(p.repository), "repository"));
+        }
+        var sep = index === 0 ? "" : '<hr width="60%" size="1" noshade>\n';
         return (
-          '<tr bgcolor="' +
-          rowBg +
-          '">' +
-          cell("<b>" + name + "</b>") +
-          cell(desc) +
-          cell(links.join(" &nbsp; ") || "&mdash;") +
-          "</tr>"
+          sep +
+          "<h2>" +
+          '<font face="Times New Roman, Times, serif">' +
+          name +
+          "</font>" +
+          "</h2>\n" +
+          "<p>" +
+          '<font face="Verdana, Arial, Helvetica, sans-serif" size="2">' +
+          desc +
+          "</font>" +
+          "</p>\n" +
+          "<p>" +
+          '<font face="Courier New, Courier, monospace" size="2">' +
+          (links.join(" &nbsp;|&nbsp; ") || "&mdash;") +
+          "</font>" +
+          "</p>"
         );
       })
-      .join("");
+      .join("\n");
   };
 
   window.Homepage.boot = function boot() {
@@ -92,12 +93,12 @@
       counterEl.textContent = window.Homepage.bumpVisitorCounter();
     }
 
-    var body = document.getElementById("projects-body");
-    if (!body) {
+    var root = document.getElementById("projects");
+    if (!root) {
       return;
     }
 
-    fetch("projects.json?v=1")
+    fetch("projects.json?v=2")
       .then(function (res) {
         if (!res.ok) {
           throw new Error("HTTP " + res.status);
@@ -105,11 +106,11 @@
         return res.json();
       })
       .then(function (projects) {
-        body.innerHTML = window.Homepage.renderProjects(projects);
+        root.innerHTML = window.Homepage.renderProjects(projects);
       })
       .catch(function () {
-        body.innerHTML =
-          '<tr><td colspan="3"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#990000">Could not load projects.json</font></td></tr>';
+        root.innerHTML =
+          '<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#990000">Could not load projects.json</font></p>';
       });
   };
 
