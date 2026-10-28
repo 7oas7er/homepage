@@ -20,7 +20,8 @@ test("home shows brand and project listing", async ({ page }) => {
   await expect(page.locator("#visitor-counter")).toHaveText(/\d{6}/);
   // No external stylesheet — HTML 3.2 attribute styling only
   await expect(page.locator('link[rel="stylesheet"]')).toHaveCount(0);
-  await expect(page.locator("table")).toHaveCount(0);
+  // Single layout table constrains content to ~80% viewport width
+  await expect(page.locator('table[width="80%"]')).toHaveCount(1);
 });
 
 test("imprint page loads", async ({ page }) => {

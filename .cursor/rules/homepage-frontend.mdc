@@ -6,7 +6,7 @@ alwaysApply: false
 
 # Homepage — frontend
 
-- Prefer **HTML 3.2-era markup**: `body`/`font`/`bgcolor` attributes, default browser styling, simple headings and paragraphs. Avoid external CSS and modern layout systems unless Frank asks. Do **not** use a projects table — stacked headline / description / links per project.
+- Prefer **HTML 3.2-era markup**: `body`/`font`/`bgcolor` attributes, default browser styling, simple headings and paragraphs. Avoid external CSS and modern layout systems unless Frank asks. Do **not** use a projects table — stacked headline / description / links per project. A single centered layout table (`width="80%"`) for page margins is fine.
 - Project entries come from `projects.json` — prefer editing that file over hard-coding in HTML. Each entry needs a multi-sentence `description` plus `production`, `staging`, and `repository` URLs.
 - Escape content strings when rendering into the DOM (`app.js` helpers). Staging/production/repository links: `target="_blank"` + `rel="noopener noreferrer"`.
 - Keep structure clean and readable (clear heading, stacked project blocks, short imprint) — authentic bare-bones, not a parody dump.
