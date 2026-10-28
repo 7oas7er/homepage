@@ -98,7 +98,7 @@
       return;
     }
 
-    fetch("projects.json?v=2")
+    fetch("projects.json?v=3")
       .then(function (res) {
         if (!res.ok) {
           throw new Error("HTTP " + res.status);
