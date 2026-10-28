@@ -2,22 +2,25 @@
   {
     "id": "block-drop",
     "name": "Block Drop",
-    "description": "Private falling-block puzzle game — static HTML/CSS/JS with a high-scores API.",
+    "description": "Block Drop is a falling-block puzzle game in the spirit of that classic genre. Pieces drop on a grid; you move and rotate them so filled lines clear, the score climbs, and later pieces fall faster. The game itself is a static page of HTML, CSS, and plain JavaScript — no framework, bundler, or build step. A small high-scores API sits behind it so scores can be recorded across visits. It is a private toy app I run on my own domain.",
     "production": "https://blockdrop.7oas7er.com",
-    "staging": "https://blockdrop-stg.7oas7er.com"
+    "staging": "https://blockdrop-stg.7oas7er.com",
+    "repository": "https://github.com/7oas7er/block-drop"
   },
   {
     "id": "dressme",
     "name": "DressMe",
-    "description": "Personal wardrobe catalog and outfit suggestions (classic menswear).",
+    "description": "DressMe is a personal wardrobe catalog aimed at classic menswear. You capture items with photos and attributes, browse what you own, and ask for outfit ideas for a given occasion. Suggestions come back as three looks drawn only from your catalog, shown as flat-lay collages of your actual pieces. The app is private and sign-in gated so the wardrobe stays yours. Catalog first; outfit suggestions follow from what you have logged.",
     "production": "https://dressme.7oas7er.com",
-    "staging": "https://dressme-stg.7oas7er.com"
+    "staging": "https://dressme-stg.7oas7er.com",
+    "repository": "https://github.com/7oas7er/dressme"
   },
   {
     "id": "netrunner",
     "name": "Netrunner",
-    "description": "Classic Netrunner card catalog — browse the set, starters, and boosters.",
+    "description": "Netrunner is a Classic Netrunner card catalog. Browse the full set, generate random Runner and Corp starters, or open Limited, Proteus, and Classic boosters. The site is static HTML, CSS, and JavaScript — a cards-only rebuild of an earlier Play Framework / Scala version from 2017. There is no account system and no deck-builder backend; it is meant for browsing and random draws. Duplicate cards are allowed in random packs, same as the original app.",
     "production": "https://netrunner.7oas7er.com",
-    "staging": "https://netrunner-stg.7oas7er.com"
+    "staging": "https://netrunner-stg.7oas7er.com",
+    "repository": "https://github.com/7oas7er/netrunner"
   }
 ]
