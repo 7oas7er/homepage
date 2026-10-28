@@ -22,5 +22,13 @@
     "production": "https://netrunner.7oas7er.com",
     "staging": "https://netrunner-stg.7oas7er.com",
     "repository": "https://github.com/7oas7er/netrunner"
+  },
+  {
+    "id": "fuboot-tours",
+    "name": "FUBoot Tours",
+    "description": "FUBoot Tours is a VRML mini-game from a Freie Universität Berlin course on web-based 3D application development, around 2003. You steer a submarine through a virtual sea around the former Soviet submarine harbour of Murmansk, with an open-sea world and a harbour scavenger hunt. It originally needed the Blaxxun Contact VRML plugin on a Pentium III–era PC with 3D acceleration. Modern browsers can play it through X_ITE instead of the old plugin. Authors were Andreas Gramm, Philipp Heroven, Oliver Kudell, and Frank Schlesinger.",
+    "production": "https://fuboot.7oas7er.com",
+    "staging": "https://fuboot-stg.7oas7er.com",
+    "repository": "https://github.com/7oas7er/fuboot-tours"
   }
 ]
