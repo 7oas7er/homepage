@@ -6,8 +6,8 @@ alwaysApply: false
 
 # Homepage — frontend
 
-- Prefer **HTML 3.2-era markup**: tables, `body`/`font`/`bgcolor` attributes, default browser styling. Avoid external CSS and modern layout systems unless Frank asks.
-- Project rows come from `projects.json` — prefer editing that file over hard-coding rows in HTML.
-- Escape content strings when rendering into the DOM (`app.js` helpers). Staging/production links: `target="_blank"` + `rel="noopener noreferrer"`.
-- Keep structure clean and readable (clear heading, one projects table, short imprint) — authentic bare-bones, not a parody dump.
-- Bump `?v=` on `js/app.js` when shipping script changes.
+- Prefer **HTML 3.2-era markup**: `body`/`font`/`bgcolor` attributes, default browser styling, simple headings and paragraphs. Avoid external CSS and modern layout systems unless Frank asks. Do **not** use a projects table — stacked headline / description / links per project. A single centered layout table (`width="80%"`) for page margins is fine.
+- Project entries come from `projects.json` — prefer editing that file over hard-coding in HTML. Each entry needs a multi-sentence `description` plus `production`, `staging`, and `repository` URLs.
+- Escape content strings when rendering into the DOM (`app.js` helpers). Staging/production/repository links: `target="_blank"` + `rel="noopener noreferrer"`.
+- Keep structure clean and readable (clear heading, stacked project blocks, short imprint) — authentic bare-bones, not a parody dump.
+- Bump `?v=` on `js/app.js` (and `projects.json` fetch) when shipping script or data changes.

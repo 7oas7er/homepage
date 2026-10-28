@@ -45,31 +45,45 @@ test("projects.json lists known sibling apps with real hosts", () => {
   const byId = Object.fromEntries(projects.map((p) => [p.id, p]));
   assert.equal(byId["block-drop"].production, "https://blockdrop.7oas7er.com");
   assert.equal(byId["block-drop"].staging, "https://blockdrop-stg.7oas7er.com");
+  assert.equal(byId["block-drop"].repository, "https://github.com/7oas7er/block-drop");
   assert.equal(byId.dressme.production, "https://dressme.7oas7er.com");
+  assert.equal(byId.dressme.repository, "https://github.com/7oas7er/dressme");
   assert.equal(byId.netrunner.production, "https://netrunner.7oas7er.com");
+  assert.equal(byId.netrunner.repository, "https://github.com/7oas7er/netrunner");
+  for (const p of projects) {
+    assert.ok(
+      typeof p.description === "string" && p.description.length > 80,
+      `${p.id} should have a multi-sentence description`
+    );
+  }
 });
 
-test("Homepage.renderProjects emits name, description, and env links", () => {
+test("Homepage.renderProjects emits headline, description, and links", () => {
   const Homepage = loadHomepage();
   const html = Homepage.renderProjects([
     {
       id: "demo",
       name: "Demo <App>",
-      description: "A & B",
+      description: "A & B. More detail here.",
       production: "https://example.com",
       staging: "https://stg.example.com",
+      repository: "https://github.com/example/demo",
     },
   ]);
+  assert.match(html, /<h2>/);
   assert.match(html, /Demo &lt;App&gt;/);
-  assert.match(html, /A &amp; B/);
+  assert.match(html, /A &amp; B\. More detail here\./);
   assert.match(html, /href="https:\/\/example.com"/);
   assert.match(html, /href="https:\/\/stg\.example\.com"/);
+  assert.match(html, /href="https:\/\/github\.com\/example\/demo"/);
   assert.match(html, /target="_blank"/);
   assert.match(html, /rel="noopener noreferrer"/);
   assert.match(html, />production</);
   assert.match(html, />staging</);
+  assert.match(html, />repository</);
   assert.match(html, /<font face="Verdana/);
-  assert.match(html, /bgcolor="#eeeeee"/);
+  assert.doesNotMatch(html, /<tr[\s>]/);
+  assert.doesNotMatch(html, /<table[\s>]/);
 });
 
 test("Homepage.bumpVisitorCounter increments local storage", () => {
