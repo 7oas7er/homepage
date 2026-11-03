@@ -10,11 +10,13 @@
   },
   "devDependencies": {
     "@playwright/test": "1.64.1",
-    "serve": "14.2.6"
+    "serve": "14.2.6",
+    "minimatch": "file:vendor/minimatch"
   },
   "overrides": {
     "compression": "1.8.2",
-    "fast-uri": "3.1.9"
+    "fast-uri": "3.1.9",
+    "minimatch": "$minimatch"
   },
   "engines": {
     "node": ">=20"
