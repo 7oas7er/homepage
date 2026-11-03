@@ -1,0 +1,10 @@
+{
+  "name": "minimatch",
+  "version": "11.0.4",
+  "description": "CJS-callable shim over minimatch@11.0.4 for serve-handler compatibility",
+  "main": "index.js",
+  "license": "ISC",
+  "dependencies": {
+    "minimatch-lib": "npm:minimatch@11.0.4"
+  }
+}
