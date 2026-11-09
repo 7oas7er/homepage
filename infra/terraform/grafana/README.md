@@ -11,7 +11,7 @@ CloudWatch scrape is enabled by default (`enable_cloudwatch_scrape = true`). Org
 | `shared-homepage-grafana-cloudwatch-role` | IAM role Grafana Labs assumes to read CloudWatch |
 | `grafana_cloud_provider_aws_account` | Links the AWS account to the Grafana stack |
 | `grafana_cloud_provider_aws_cloudwatch_scrape_job` | Scrapes Lambda + CloudFront metrics |
-| Synthetic HTTP checks | Prod/stg site + `/api/health` (prod: ≤2 EU probes @ 5m; stg: 1 probe @ 15m) |
+| Synthetic HTTP checks | Prod/stg site + `/api/health` (prod: ≤2 EU probes @ 15m; stg: 1 probe @ 30m) |
 | Infinity data source | Cloudflare GraphQL edge traffic + firewall / rate-limit events (optional until token set) |
 | GitHub data source | Actions workflow runs / usage for deploy + terraform-plan (optional until token set) |
 | Folder + dashboards `Homepage — Production` / `Homepage — Staging` | Fixed-window traffic/errors/latency + synthetics + Cloudflare edge + GitHub CI |
@@ -39,14 +39,22 @@ Probe script (optional) still lives under `scripts/` here, or use platform
 
 ### GitHub Actions CI
 
-1. Create a fine-grained PAT for repo `7oas7er/homepage` with **Actions: Read**, **Metadata: Read**, and **Contents: Read** if the plugin requires it.
-2. Set `github_access_token` in `terraform.tfvars` (or `GITHUB_GRAFANA_TOKEN`).
-3. The `grafana-github-datasource` **plugin** is installed by platform `shared-obs`. This root only creates DS `github-homepage`.
-4. Both env dashboards include GitHub panels for `deploy-homepage.yml` and `terraform-plan.yml`.
+1. Create a fine-grained PAT for repo `7oas7er/homepage` with **Actions: Read**,
+   **Metadata: Read**, and **Contents: Read** if the plugin requires it.
+2. Set `github_access_token` in `terraform.tfvars` (or export `TF_VAR_github_access_token`).
+3. For CI Plan Grafana, also set Environment **`terraform`** secret `GRAFANA_GITHUB_TOKEN`
+   to the same PAT (see [`../docs/terraform-plan-ci.md`](../docs/terraform-plan-ci.md)).
+   Without it, every CI plan proposes destroying DS `github-homepage` once the DS exists
+   in state (or never creates it). Actions forbids secret names starting with `GITHUB_`.
+4. The `grafana-github-datasource` **plugin** is installed by platform `shared-obs`.
+   This root only creates DS `github-homepage`.
+5. Both env dashboards include GitHub panels for `deploy-homepage.yml` and `terraform-plan.yml`.
    Panel targets must put the file name in `options.workflow` (not a top-level `workflow`
    field) — otherwise the plugin queries an empty name and returns `workflow not found`.
 
 Without the GitHub token, synthetics + CloudWatch still apply; the GitHub DS is skipped.
+Dashboards still reference `${github}` → `github-homepage`, so the GitHub filter shows
+**Datasource not found** until you apply with the token.
 
 ## Dashboards
 
