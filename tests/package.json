@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@playwright/test": "1.64.1",
-    "serve": "14.2.6",
+    "serve": "14.2.7",
     "minimatch": "file:vendor/minimatch"
   },
   "overrides": {
