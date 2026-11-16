@@ -18,7 +18,7 @@ Frontend lives under [`homepage/`](homepage/). Project rows are data-driven from
 
 | Path | Role |
 |------|------|
-| [`homepage/`](homepage/) | Static listing site (`projects.json` + period HTML/CSS/JS) |
+| [`homepage/`](homepage/) | Static listing site (`projects.json` + period HTML/JS, no external CSS) |
 | [`tests/`](tests/) | Node unit tests + Playwright e2e; gates deploy |
 | [`infra/terraform/aws/`](infra/terraform/aws/) | Site module + `envs/stg` / `envs/prod` + bootstrap |
 | [`infra/terraform/cloudflare/`](infra/terraform/cloudflare/) | **DNS only** for Homepage hosts (zone rulesets → platform `shared-edge`) |
