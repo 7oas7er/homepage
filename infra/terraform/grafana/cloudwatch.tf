@@ -27,7 +27,7 @@ resource "grafana_cloud_provider_aws_cloudwatch_scrape_job" "homepage" {
 
   service {
     name                    = "AWS/Lambda"
-    scrape_interval_seconds = 300
+    scrape_interval_seconds = 900
 
     metric {
       name       = "Invocations"
@@ -46,7 +46,7 @@ resource "grafana_cloud_provider_aws_cloudwatch_scrape_job" "homepage" {
 
     metric {
       name       = "Duration"
-      statistics = ["Average", "Maximum"]
+      statistics = ["Average"]
     }
 
     tags_to_add_to_metrics = ["Name"]
@@ -54,7 +54,7 @@ resource "grafana_cloud_provider_aws_cloudwatch_scrape_job" "homepage" {
 
   service {
     name                    = "AWS/CloudFront"
-    scrape_interval_seconds = 300
+    scrape_interval_seconds = 900
 
     metric {
       name       = "Requests"
@@ -62,22 +62,7 @@ resource "grafana_cloud_provider_aws_cloudwatch_scrape_job" "homepage" {
     }
 
     metric {
-      name       = "BytesDownloaded"
-      statistics = ["Sum"]
-    }
-
-    metric {
-      name       = "4xxErrorRate"
-      statistics = ["Average"]
-    }
-
-    metric {
       name       = "5xxErrorRate"
-      statistics = ["Average"]
-    }
-
-    metric {
-      name       = "TotalErrorRate"
       statistics = ["Average"]
     }
 
