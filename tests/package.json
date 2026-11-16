@@ -9,7 +9,7 @@
     "test:e2e:install": "playwright install --with-deps chromium"
   },
   "devDependencies": {
-    "@playwright/test": "1.64.1",
+    "@playwright/test": "1.65.0",
     "serve": "14.2.6",
     "minimatch": "file:vendor/minimatch"
   },
