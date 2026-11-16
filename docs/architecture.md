@@ -16,7 +16,7 @@ Full platform write-up: [platform docs/architecture.md](https://github.com/7oas7
 
 ## Product
 
-Public project directory for Frank Schlesinger: 1990s personal-homepage look, table listing of apps with short descriptions and **staging** + **production** links. Rows live in `homepage/projects.json` so new projects are a data edit.
+Public project directory for Frank Schlesinger: 1990s personal-homepage look (HTML 3.2 / no external CSS). Sibling apps are listed as stacked headline + multi-sentence description + production / staging / repository links (no projects table). Entries live in `homepage/projects.json` so new projects are a data edit.
 
 Hosts discovered from sibling Terraform (do not invent):
 
@@ -25,6 +25,7 @@ Hosts discovered from sibling Terraform (do not invent):
 | Block Drop | `blockdrop.7oas7er.com` | `blockdrop-stg.7oas7er.com` |
 | DressMe | `dressme.7oas7er.com` | `dressme-stg.7oas7er.com` |
 | Netrunner | `netrunner.7oas7er.com` | `netrunner-stg.7oas7er.com` |
+| FUBoot Tours | `fuboot.7oas7er.com` | `fuboot-stg.7oas7er.com` |
 
 ## What this repo owns
 
