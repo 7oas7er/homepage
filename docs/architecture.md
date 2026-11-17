@@ -26,6 +26,7 @@ Hosts discovered from sibling Terraform (do not invent):
 | DressMe | `dressme.7oas7er.com` | `dressme-stg.7oas7er.com` |
 | Netrunner | `netrunner.7oas7er.com` | `netrunner-stg.7oas7er.com` |
 | FUBoot Tours | `fuboot.7oas7er.com` | `fuboot-stg.7oas7er.com` |
+| Long Way Home | `longwayhome.7oas7er.com` | `longwayhome-stg.7oas7er.com` |
 
 ## What this repo owns
 
