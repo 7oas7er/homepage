@@ -56,6 +56,18 @@ test("projects.json lists known sibling apps with real hosts", () => {
     byId["fuboot-tours"].repository,
     "https://github.com/7oas7er/fuboot-tours"
   );
+  assert.equal(
+    byId["long-way-home"].production,
+    "https://longwayhome.7oas7er.com"
+  );
+  assert.equal(
+    byId["long-way-home"].staging,
+    "https://longwayhome-stg.7oas7er.com"
+  );
+  assert.equal(
+    byId["long-way-home"].repository,
+    "https://github.com/7oas7er/long-way-home"
+  );
   for (const p of projects) {
     assert.ok(
       typeof p.description === "string" && p.description.length > 80,
